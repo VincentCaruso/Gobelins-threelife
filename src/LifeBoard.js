@@ -32,7 +32,7 @@ export class LifeBoard extends THREE.Group {
 
     initializeArray() {
 
-        let geometry = new THREE.BoxBufferGeometry();
+        let geometry = new THREE.BoxGeometry();
 
         for (let y = 0; y < this.height; y++) {
             for (let x = 0; x < this.width; x++) {

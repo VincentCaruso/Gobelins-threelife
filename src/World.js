@@ -16,9 +16,9 @@ export class World {
         console.log("START WORLD");
 
         this.makeScene();
-
+        
         this.makeCamera();
-
+        
         this.makeLights();
 
         if (this.debug) {
@@ -27,9 +27,7 @@ export class World {
 
         this.createBoard();
 
-
         this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-
 
         this.animate();
 
@@ -45,14 +43,14 @@ export class World {
         //DirectionalLight Helper
         let directionalLightHelper = new THREE.DirectionalLightHelper(this.directionalLight, 5);
         this.scene.add(directionalLightHelper);
-
+        
         //HemiLight Helper
         let hemiLightHelper = new THREE.HemisphereLightHelper(this.hemiLight, 10);
         this.scene.add(hemiLightHelper);
-
+        
         //Stats
         this.stats = new Stats();
-        let container = document.getElementById('container');
+        let container = document.getElementById('app');
         container.appendChild(this.stats.dom);
 
         //Create a helper for the shadow camera (optional)
@@ -63,14 +61,14 @@ export class World {
     makeLights() {
 
         //Hemi light
-        this.hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 0.6);
+        this.hemiLight = new THREE.HemisphereLight(0xffffff, 0xffffff, 1.5);
         this.hemiLight.color.setHSL(0.6, 1, 1);
         this.hemiLight.groundColor.setHSL(0.095, 1, 0.75);
         this.hemiLight.position.set(0, 50, 0);
         this.scene.add(this.hemiLight);
 
         //Directional
-        this.directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+        this.directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
         this.directionalLight.position.set(40, 40, 40);
         this.directionalLight.castShadow = true;
 
@@ -95,6 +93,7 @@ export class World {
     makeCamera() {
         this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
         this.camera.position.set(20, 40, 0);
+
     }
 
     makeScene() {

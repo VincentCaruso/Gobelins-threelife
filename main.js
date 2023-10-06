@@ -1,7 +1,9 @@
-import { World } from "./World";
+import "./css/style.css";
+import { World } from "./src/World";
 
 window.addEventListener('DOMContentLoaded', (e) => {
 
+    console.log("DOM fully loaded and parsed");
     const WORLD_WIDTH = 50;
     const WORLD_HEIGHT = 50;
     const IS_DEBUG = true;
